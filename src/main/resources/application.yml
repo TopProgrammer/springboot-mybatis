@@ -1,0 +1,26 @@
+app:
+  app-name: changcheng-ops
+  allow-generate-api: true
+  allow-cross-domain-access: true
+  order-path: /tmp/
+  template-order-path: report/template/report_userOrder_templet.xls
+  after-sale-remind-days: 7
+  customer-services-mobile: 18336070691
+  
+logging:
+  config: classpath:log.xml
+
+server:
+  port: 8088
+  session-timeout: 1800  
+
+spring:
+    datasource:
+      name: datasource
+      initialize: false
+      
+      url: jdbc:mysql://localhost:3306/mydemodatabase?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+      username: root
+      password: 920512
+      driverClassName: com.mysql.jdbc.Driver
+    
