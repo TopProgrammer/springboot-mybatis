@@ -3,6 +3,10 @@ package site.changcheng.ops;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.annotation.Resource;
 
@@ -43,10 +47,9 @@ public class Launcher {
   public static void main(String args[]){
     SpringApplication app = new SpringApplication(Launcher.class);
     app.addListeners(new SystemInit());
-    
     app.run(args);
   }
-  
+
   @Resource
   private AppConfig appConfig;
   /**

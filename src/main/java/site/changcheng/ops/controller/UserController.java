@@ -26,9 +26,11 @@ import site.changcheng.ops.entity.User;
 import site.changcheng.ops.helper.UserValidateHelper;
 import site.changcheng.ops.service.UserService;
 import site.changcheng.ops.utils.Constants;
+import site.changcheng.ops.utils.ImageCaptcha;
 import site.changcheng.ops.utils.OperationResult;
-import site.changcheng.ops.utils.image.ImageCaptcha;
-import site.changcheng.ops.utils.image.ImageCodeUtil;
+import site.changcheng.ops.utils.SpeedDialProduct;
+
+
 import site.changcheng.ops.utils.operation.StatusCode;
 
 /**
@@ -88,7 +90,7 @@ public class UserController {
     response.setDateHeader("Expires", 0);
     response.setContentType("image/jpeg");
     // 获得图片以及验证码,
-    ImageCaptcha imageCaptcha = ImageCodeUtil.getLoginImageCaptcha();
+    ImageCaptcha imageCaptcha = SpeedDialProduct.getLoginImageCaptcha();
     // 将其保存到缓存中去
     request.getSession().removeAttribute(Constants.WEB_LOGIN_IMAGE_CODE);
     request.getSession().setAttribute(Constants.WEB_LOGIN_IMAGE_CODE,
@@ -131,7 +133,7 @@ public class UserController {
    * 6.将用户信息保存到缓存当中
    * </pre>
    * 
-   * @param username
+   * @param
    * @param password
    * @param request
    * @return

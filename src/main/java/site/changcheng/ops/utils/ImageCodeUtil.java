@@ -56,4 +56,7 @@ public class ImageCodeUtil {
     return captcha;
   }
 
+    public static void  main (String args[]){
+        ImageCodeUtil.getLoginImageCaptcha();
+    }
 }
