@@ -9,7 +9,6 @@ app:
   
 logging:
   config: classpath:log.xml
-
 server:
   port: 8088
   session-timeout: 1800  

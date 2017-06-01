@@ -3,16 +3,13 @@ package site.changcheng.ops;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.annotation.Resource;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +35,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableScheduling
 @EnableSwagger2
+@EnableAutoConfiguration
 @MapperScan("site.changcheng.ops.mapper")
 public class Launcher {
   
