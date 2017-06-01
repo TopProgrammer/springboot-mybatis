@@ -12,8 +12,11 @@ logging:
 server:
   port: 8088
   session-timeout: 1800  
-
 spring:
+  http:
+    encoding:
+      charset: utf-8
+
     datasource:
       name: datasource
       initialize: false
