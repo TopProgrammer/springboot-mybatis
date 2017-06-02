@@ -487,6 +487,18 @@ li a.vimeo {
 li a.dropbox {
 	background:url(images/social/dropbox.png) no-repeat scroll center center;
 }
+li a.github {
+	background:url(images/social/github.png) no-repeat scroll center center;
+}
+li a.qq {
+	background:url(images/social/qq.png) no-repeat scroll center center;
+}
+li a.csdn {
+	background:url(images/social/csdn.png) no-repeat scroll center center;
+}
+li a.jenkins {
+	background:url(images/social/jenkins.png) no-repeat scroll center center;
+}
 
 
 /*-----------------------------------------------------------------------------------*/

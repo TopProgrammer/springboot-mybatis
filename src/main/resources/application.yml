@@ -13,6 +13,9 @@ server:
   port: 8088
   session-timeout: 1800
 spring:
+  mvc:
+    favicon:
+      enabled: false
   http:
     encoding:
       charset: utf-8
