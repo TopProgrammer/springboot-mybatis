@@ -18,6 +18,6 @@ build
 *.ipr
 *.iws
 .idea
-
+*.out
 # java
 target/
