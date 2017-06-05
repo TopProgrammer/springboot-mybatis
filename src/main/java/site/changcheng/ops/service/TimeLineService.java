@@ -9,6 +9,6 @@ import java.util.List;
 /**
  * Created by baiju on 2017/6/4.
  */
-public interface ITimeLineService {
+public interface TimeLineService {
    List<TimeLine> getAllTimeLines();
 }

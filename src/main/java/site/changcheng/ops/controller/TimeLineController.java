@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import site.changcheng.ops.entity.TimeLine;
 import site.changcheng.ops.entity.User;
-import site.changcheng.ops.service.ITimeLineService;
+import site.changcheng.ops.service.TimeLineService;
 import site.changcheng.ops.service.UserService;
 import site.changcheng.ops.utils.OperationResult;
 
@@ -27,7 +27,7 @@ import java.util.List;
 public class TimeLineController {
 
     @Resource
-    private ITimeLineService timeLineService;
+    private TimeLineService timeLineService;
 
     private Logger logger= LoggerFactory.getLogger("TimeLineController");
 
