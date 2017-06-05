@@ -11,7 +11,6 @@ public class User implements Serializable {
   private String age;
   private String gender;
 
-
   public Long getId() {
     return id;
   }

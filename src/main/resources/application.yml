@@ -10,7 +10,7 @@ app:
 logging:
   config: classpath:log.xml
 server:
-  port: 8088
+  port: 23000
   session-timeout: 1800
 spring:
   mvc:
@@ -19,13 +19,13 @@ spring:
   http:
     encoding:
       charset: utf-8
-
-    datasource:
-      name: datasource
-      initialize: false
-      
-      url: jdbc:mysql://localhost:3306/mydemodatabase?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
-      username: root
-      password: 920512
-      driverClassName: com.mysql.jdbc.Driver
+  datasource:
+    name: datasource
+    initialize: false
+    #jdbc:mysql://ilovemldu.mysql.rds.aliyuncs.com:3506/maserati_app_dev?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://123.56.24.21:3306/cc_interface?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+    #url: jdbc:mysql://localhost:3306/mydemodatabase?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: 920512
+    driverClassName: com.mysql.jdbc.Driver
     
