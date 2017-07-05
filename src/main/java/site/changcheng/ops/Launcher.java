@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -32,10 +33,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Spring Boot启动主类  
  * @author wangzhicheng@uworks.cc
  */
-@SpringBootApplication
 @EnableScheduling
 @EnableSwagger2
 @EnableAutoConfiguration
+@SpringBootApplication(exclude = {
+        DataSourceAutoConfiguration.class
+})
 @MapperScan("site.changcheng.ops.mapper")
 public class Launcher {
   

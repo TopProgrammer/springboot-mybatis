@@ -6,28 +6,31 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import site.changcheng.ops.entity.User;
-import site.changcheng.ops.mapper.UserMapper;
-import site.changcheng.ops.service.UserService;
+import site.changcheng.ops.entity.UserInfo;
+import site.changcheng.ops.mapper.primarydatasource.UserInfoMapper;
+import site.changcheng.ops.service.UserInfoService;
+import site.changcheng.ops.service.UserInfoService;
+
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserInfoService {
 
-  @Autowired
-  private UserMapper userMapper;
-  @Override
-  public void add(User user) {
-    userMapper.insert(user);
-  }
+    @Autowired
+    private UserInfoMapper userInfoMapper;
 
-  @Override
-  public List<User> getAll() {
-    return userMapper.getAll();
-  }
+    @Override
+    public void add(UserInfo user) {
 
-  @Override
-  public Map<String, Object> login(String id, String password) {
-    // TODO Auto-generated method stub
-    return null;
-  }
+    }
+
+    @Override
+    public List<UserInfo> getAll() {
+        return userInfoMapper.getAll();
+    }
+
+    @Override
+    public Map<String, Object> login(String id, String password) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

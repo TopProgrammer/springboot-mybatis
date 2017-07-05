@@ -22,9 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import site.changcheng.ops.entity.User;
+
+import site.changcheng.ops.entity.UserInfo;
 import site.changcheng.ops.helper.UserValidateHelper;
-import site.changcheng.ops.service.UserService;
+import site.changcheng.ops.service.UserInfoService;
+
 import site.changcheng.ops.utils.Constants;
 import site.changcheng.ops.utils.ImageCaptcha;
 import site.changcheng.ops.utils.OperationResult;
@@ -44,7 +46,7 @@ import site.changcheng.ops.utils.operation.StatusCode;
 public class UserController {
   
   @Resource
-  private UserService userService;
+  private UserInfoService userInfoService;
   
   private Logger logger=LoggerFactory.getLogger("UserController");
   
@@ -60,8 +62,8 @@ public class UserController {
    * @return
    */
   @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-  public User addUser(@RequestBody User user){
-    userService.add(user);
+  public UserInfo addUser(@RequestBody UserInfo user){
+    userInfoService.add(user);
     
     return user;
   }
@@ -176,7 +178,7 @@ public class UserController {
     Map<String, Object> map = new HashMap<String,Object>();
 //    Map<String, Object> map = userService.login(id, password);
 
-    User user= (User) map.get("user");
+    UserInfo user= (UserInfo) map.get("user");
     
     if (user == null) {
       session.removeAttribute(Constants.WEB_LOGIN_IMAGE_CODE);
@@ -196,14 +198,14 @@ public class UserController {
    * @return
    */
   @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-  public List<User> getAllUser(){
-    List<User> list=userService.getAll();
+  public List<UserInfo> getAllUser(){
+    List<UserInfo> list=userInfoService.getAll();
     
     return list;
   }
   
   @RequestMapping(value = "/deleteActivity", method = RequestMethod.POST)
-  public User deleteActivity(@RequestBody User user){
+  public UserInfo deleteActivity(@RequestBody UserInfo user){
      
     
     return user;
