@@ -3,14 +3,11 @@ package site.changcheng.ops.controller;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import site.changcheng.ops.entity.TimeLine;
-import site.changcheng.ops.entity.User;
+import site.changcheng.ops.helper.TimeLine;
 import site.changcheng.ops.service.TimeLineService;
-import site.changcheng.ops.service.UserService;
 import site.changcheng.ops.utils.OperationResult;
 
 import javax.annotation.Resource;

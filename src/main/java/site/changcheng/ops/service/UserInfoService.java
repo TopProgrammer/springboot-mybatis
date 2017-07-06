@@ -1,14 +1,14 @@
 package site.changcheng.ops.service;
 
+import site.changcheng.ops.entity.UserInfo;
+
 import java.util.List;
 import java.util.Map;
 
-import site.changcheng.ops.entity.UserInfo;
-
 public interface UserInfoService {
-  public void add(UserInfo user);
+  void add(UserInfo user);
   
-  public List<UserInfo> getAll();
+  List<UserInfo> getAll();
   
-  public Map<String, Object> login(String id,String password);
+  Map<String, Object> login(String id,String password);
 }

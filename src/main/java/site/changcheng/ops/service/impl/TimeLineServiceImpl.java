@@ -1,7 +1,7 @@
 package site.changcheng.ops.service.impl;
 
 import org.springframework.stereotype.Service;
-import site.changcheng.ops.entity.TimeLine;
+import site.changcheng.ops.helper.TimeLine;
 import site.changcheng.ops.mapper.secondarydatasource.TimeLineMapper;
 import site.changcheng.ops.service.TimeLineService;
 

@@ -1,15 +1,13 @@
 package site.changcheng.ops.service.impl;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import site.changcheng.ops.entity.UserInfo;
 import site.changcheng.ops.mapper.primarydatasource.UserInfoMapper;
 import site.changcheng.ops.service.UserInfoService;
-import site.changcheng.ops.service.UserInfoService;
+
+import java.util.List;
+import java.util.Map;
 
 @Service("userService")
 public class UserServiceImpl implements UserInfoService {

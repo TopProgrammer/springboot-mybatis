@@ -1,7 +1,7 @@
 package site.changcheng.ops.mapper.secondarydatasource;
 
 import org.apache.ibatis.annotations.Select;
-import site.changcheng.ops.entity.TimeLine;
+import site.changcheng.ops.helper.TimeLine;
 
 import java.util.List;
 

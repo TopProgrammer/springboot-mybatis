@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@MapperScan(basePackages = "site.changcheng.ops.mapper.primarydatasource", sqlSessionTemplateRef = "primarySqlSessionTemplate")
+@MapperScan(basePackages = "site.changcheng.ops.mapper.primarydatasource", sqlSessionTemplateRef = "SqlSessionTemplate")
 public class FirstDataSourceConfig {
 
     @Bean(name = "primaryDataSource")
