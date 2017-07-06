@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 public class FirstDataSourceConfig {
 
     @Bean(name = "primaryDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test1")
+    @ConfigurationProperties(prefix = "spring.datasource.primary")
     @Primary
     public DataSource testDataSource() {
         return DataSourceBuilder.create().build();
@@ -36,7 +36,7 @@ public class FirstDataSourceConfig {
     public SqlSessionFactory testSqlSessionFactory(@Qualifier("primaryDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/test1/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:site/changcheng/ops/mapping/*.mapper"));
         return bean.getObject();
     }
 

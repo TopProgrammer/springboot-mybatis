@@ -32,22 +32,19 @@ public class SecondaryDataSourceConfig {
     }
 
     @Bean(name = "secondarySqlSessionFactory")
-
     public SqlSessionFactory secondarySqlSessionFactory(@Qualifier("secondaryDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/test1/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:site/changcheng/ops/mapping/*.xml"));
         return bean.getObject();
     }
 
     @Bean(name = "secondaryTransactionManager")
-
     public DataSourceTransactionManager secondaryTransactionManager(@Qualifier("secondaryDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean(name = "secondarySqlSessionTemplate")
-
     public SqlSessionTemplate secondarySqlSessionTemplate(@Qualifier("secondarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }

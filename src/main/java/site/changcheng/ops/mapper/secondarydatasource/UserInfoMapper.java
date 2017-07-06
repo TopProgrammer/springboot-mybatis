@@ -1,4 +1,4 @@
-package site.changcheng.ops.mapper.primarydatasource;
+package site.changcheng.ops.mapper.secondarydatasource;
 
 import org.apache.ibatis.annotations.Select;
 import site.changcheng.ops.entity.UserInfo;

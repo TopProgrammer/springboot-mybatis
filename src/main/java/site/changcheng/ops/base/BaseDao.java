@@ -1,12 +1,17 @@
 package site.changcheng.ops.base;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import site.changcheng.ops.utils.GenericsUtils;
+import site.changcheng.ops.utils.PageVo;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
@@ -90,18 +95,10 @@ public class BaseDao<T, PK extends Serializable> extends SqlSessionDaoSupport im
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public PageInfo<T> pageFind(String statementKey, PageForm pageForm, Object parameter,
+    public PageInfo<T> pageFind(String statementKey, PageVo pageForm, Object parameter,
                                 Boolean isSimplePage) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        Map params = new HashMap();
-        if (parameter != null) {
-            if (parameter instanceof Map) {
-                params.putAll((Map) parameter);
-            } else {
-                Map parameterObject = PropertyUtils.describe(parameter);
-                params.putAll(parameterObject);
-            }
-        }
-        PageHelper.startPage(pageForm.getPage(), pageForm.getRows());
+        Map params = mapToFiled(parameter);
+        PageHelper.startPage(pageForm.getPageCode(), pageForm.getPageSize());
         List<T> list = getSqlSession().selectList(statementKey, params);
         PageInfo<T> pageInfo = new PageInfo(list);
 
@@ -110,15 +107,7 @@ public class BaseDao<T, PK extends Serializable> extends SqlSessionDaoSupport im
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     public List<T> findTop(int top, String statementKey, Object parameter) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        Map params = new HashMap();
-        if (parameter != null) {
-            if (parameter instanceof Map) {
-                params.putAll((Map) parameter);
-            } else {
-                Map parameterObject = PropertyUtils.describe(parameter);
-                params.putAll(parameterObject);
-            }
-        }
+        Map params = mapToFiled(parameter);
         List<T> list = getSqlSession().selectList(statementKey, params, new RowBounds(0, top));
         return list;
     }
@@ -129,7 +118,16 @@ public class BaseDao<T, PK extends Serializable> extends SqlSessionDaoSupport im
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public <M> PageInfo<M> pageFindModel(String statementKey, PageForm pageForm, Object parameter) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    public <M> PageInfo<M> pageFindModel(String statementKey, PageVo pageForm, Object parameter) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+        Map params = mapToFiled(parameter);
+        PageHelper.startPage(pageForm.getPageCode(), pageForm.getPageSize());
+        List<M> list = getSqlSession().selectList(statementKey, params);
+        PageInfo<M> pageInfo = new PageInfo(list);
+
+        return pageInfo;
+    }
+
+    private Map mapToFiled(Object parameter) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
         Map params = new HashMap();
         if (parameter != null) {
             if (parameter instanceof Map) {
@@ -139,11 +137,6 @@ public class BaseDao<T, PK extends Serializable> extends SqlSessionDaoSupport im
                 params.putAll(parameterObject);
             }
         }
-        PageHelper.startPage(pageForm.getPage(), pageForm.getRows());
-        List<M> list = getSqlSession().selectList(statementKey, params);
-        PageInfo<M> pageInfo = new PageInfo(list);
-
-        return pageInfo;
+        return params;
     }
-}
 }
