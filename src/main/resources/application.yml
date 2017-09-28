@@ -24,11 +24,13 @@ spring:
       name: datasource
       initialize: false
       #jdbc:mysql://ilovemldu.mysql.rds.aliyuncs.com:3506/maserati_app_dev?useUnicode=true&characterEncoding=utf-8
-      url: jdbc:mysql://123.56.24.21:3306/cc_interface?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+      url: jdbc:log4jdbc:mysql://123.56.24.21:3306/cc_interface?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
       #url: jdbc:mysql://localhost:3306/mydemodatabase?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+#      url: jdbc:log4jdbc:mysql://ilovemldu.mysql.rds.aliyuncs.com:3506/saas_dev?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+      driverClassName: net.sf.log4jdbc.DriverSpy
+#      driverClassName: com.mysql.jdbc.Driver
       username: root
       password: 920512
-      driverClassName: com.mysql.jdbc.Driver
       max-active: 20
       max-idle: 10
       min-idle: 6
@@ -42,24 +44,24 @@ spring:
       max-wait: 3000
       jmx-enabled: true
     secondary:   # 第二数据源
-          name: datasource
-          initialize: false
-          url: jdbc:mysql://123.56.24.21:3306/commondb?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
-          username: root
-          password: 920512
-          driverClassName: com.mysql.jdbc.Driver
-          max-active: 1
-          max-idle: 1
-          min-idle: 1
-          initial-size: 1
-          validation-query: select 1
-          test-on-borrow: true
-          test-on-return: false
-          test-while-idle: false
-          time-between-eviction-runs-millis: 3000
-          min-evictable-idle-time-millis: 3000
-          max-wait: 3000
-          jmx-enabled: true
+      name: datasource
+      initialize: false
+      url: jdbc:mysql://123.56.24.21:3306/commondb?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8
+      username: root
+      password: 920512
+      driverClassName: com.mysql.jdbc.Driver
+      max-active: 1
+      max-idle: 1
+      min-idle: 1
+      initial-size: 1
+      validation-query: select 1
+      test-on-borrow: true
+      test-on-return: false
+      test-while-idle: false
+      time-between-eviction-runs-millis: 3000
+      min-evictable-idle-time-millis: 3000
+      max-wait: 3000
+      jmx-enabled: true
   data:
     jpa:
       repositories:
